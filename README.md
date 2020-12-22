@@ -1,2 +1,3 @@
 # back-PetBattle
-backend Phase 4 project with Michael and Kevin G
+backend Phase 4 project with Michael and Kevin G and Inee
+Noice.
