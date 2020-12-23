@@ -26,3 +26,4 @@ Things you may want to cover:
 just in case
 
 User.create(name: "tim", alias:"funkyWildabeast", bio:"something witty and cool", gif_url:"something.com")
+
