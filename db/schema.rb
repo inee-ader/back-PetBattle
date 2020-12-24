@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_12_22_224556) do
     t.string "pet_type"
     t.string "abilities"
     t.string "img_url"
+    t.string "description"
     t.integer "hp"
     t.integer "level", default: 1
     t.integer "exp", default: 0
@@ -69,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_12_22_224556) do
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
+    t.string "password_digest"
     t.string "alias"
     t.string "bio"
     t.integer "gold", default: 50

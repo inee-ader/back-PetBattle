@@ -5,6 +5,7 @@ class CreatePets < ActiveRecord::Migration[6.0]
       t.string :pet_type
       t.string :abilities
       t.string :img_url
+      t.string :description
       t.integer :hp
       t.integer :level, default: 1
       t.integer :exp, default: 0
