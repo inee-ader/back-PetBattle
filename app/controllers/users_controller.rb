@@ -24,7 +24,13 @@ class UsersController < ApplicationController
         user = User.new(user_params) 
         if user.save 
             token = encode_token({user_id: user.id})
+            
+            # create pets here
+
+
             render json: {user: user, token: token}
+
+
         else
             render json: user.errors
         end
@@ -46,10 +52,44 @@ class UsersController < ApplicationController
         render json: user
     end
 
+    def newgame
+        puts params
+        # find selected pets, 3 of them
+        
+        #     pet1 = Pet.find(|pet| pet.id == pet we pass in (from where?) )
+        #     # pet2 = Pet.find(|pet| pet.id == pet we pass in  )
+        #     # pet3 = Pet.find(|pet| pet.id == pet we pass in  )
+
+        #  create team with those pets, does this have to be in pet_teams?
+        
+        # team = Team.new(team_params)
+        
+        #  create game with that team
+
+        # game = Game.new(game_params)
+
+        #  create boss with that game
+
+        # boss = Boss.new(boss_params)
+        byebug
+    end
+
     private
 
     def user_params
         params.require(:user).permit(:id, :name, :alias, :bio, :gif_url)
+    end
+
+    def team_params
+        params.require(:team).permit(:user)
+    end
+
+    def game_params
+        params.require(:game).permit(:win, :user_id, :team_id)
+    end
+
+    def boss_params 
+        params.require(:boss).permit(:name, :hp, :base_damage, :img_url, :abilities, :game_id)
     end
 
 end
