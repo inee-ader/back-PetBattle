@@ -26,8 +26,7 @@ class UsersController < ApplicationController
         if user.save 
             token = encode_token({user_id: user.id})
             
-            
-            api
+            api(user)
     
             render json: {user: user, token: token}
             

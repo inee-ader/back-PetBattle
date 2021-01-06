@@ -35,16 +35,13 @@ class ApplicationController < ActionController::API
         render json: {error: "Please log in"}, status: :unauthorized unless logged_in?
     end
 
-    def api
-
-         
+    def api(user)
+        
         array = [ 42, 43, 44, 45, 46, 47, 49, 56, 72, 87, 89, 107, 126, 143, 192]
 
         accessToken= "US6F0HubpldDGsz8k61xV27703O3oJ3VV6"
 
         array.map do |id|
-
-            
 
             response = RestClient.get "https://us.api.blizzard.com/data/wow/pet/#{id}?namespace=static-us&locale=en_US&access_token=#{accessToken}"
 
@@ -54,13 +51,8 @@ class ApplicationController < ActionController::API
 
             hp = [25, 30, 40, 50]
             
-            if json 
-
-                
-                
-            Pet.create(name: json["name"], pet_type: json["battle_pet_type"]["name"], abilities: abilities, hp: hp.sample, img_url: json["icon"], user: User.last) #change to current user
-
-            
+            if json         
+                Pet.create(name: json["name"], pet_type: json["battle_pet_type"]["name"], abilities: abilities, hp: hp.sample, img_url: json["icon"], user: user) 
             end
         end
     end
