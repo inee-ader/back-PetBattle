@@ -52,28 +52,35 @@ class UsersController < ApplicationController
     end
 
     def newgame
-        puts params
-        current_user
+        # puts params
+        # puts current_user.id
         # find selected pets, 3 of them
+        pet1 = params["team"][0]["id"]
+        pet2 = params["team"][1]["id"]
+        pet3 = params["team"][2]["id"]
         
-        #     pet1 = Pet.find(|pet| pet.id == pet we pass in (from where?) )
-        #     # pet2 = Pet.find(|pet| pet.id == pet we pass in  )
-        #     # pet3 = Pet.find(|pet| pet.id == pet we pass in  )
-
-        #  create team with those pets, does this have to be in pet_teams?
-        
-        # team = Team.new(team_params)
+        #  create team with those pets
+        byebug
+        team = Team.create(user: User.find(current_user.id))
+        PetTeam.create(team: team, pet:Pet.find(pet1))
+        PetTeam.create(team: team, pet:Pet.find(pet2))
+        PetTeam.create(team: team, pet:Pet.find(pet3))
         
         #  create game with that team
-
-        # game = Game.new(game_params)
-
+        game = Game.create(user:User.find(current_user.id), team: team)
+        
         #  create boss with that game
-
-        # boss = Boss.new(boss_params)
-        # byebug
+        hp = [100, 150, 200, 250]
+        abilities = []
+        4.times {
+            abilities << Faker::Games::StreetFighter.move
+        }
+        
+        boss = Boss.create(name: Faker::Games::DnD.monster, hp: hp.sample, base_damage: rand(5..20), img_url: "https://www.cleanpng.com/png-dragon-nest-youtube-manticore-legendary-creature-c-940114/", abilities: abilities, game: game)
+        
+        render json: game
     end
-
+    
     private
 
     def user_params

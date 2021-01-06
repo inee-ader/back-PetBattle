@@ -45,3 +45,5 @@ gem "active_model_serializers", "~> 0.10.12"
 gem "jwt", "~> 2.2"
 
 gem "rest-client", "~> 2.1"
+
+gem "faker", "~> 2.15"
