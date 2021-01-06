@@ -54,6 +54,7 @@ class UsersController < ApplicationController
 
     def newgame
         puts params
+        current_user
         # find selected pets, 3 of them
         
         #     pet1 = Pet.find(|pet| pet.id == pet we pass in (from where?) )
@@ -71,7 +72,7 @@ class UsersController < ApplicationController
         #  create boss with that game
 
         # boss = Boss.new(boss_params)
-        byebug
+        # byebug
     end
 
     private

@@ -4,9 +4,11 @@ class ApplicationController < ActionController::API
     end
 
     def auth_header
+        #how to get our current_user 
+        # byebug
         request.headers['Authorization']
     end
-
+    
     def decoded_token
         if auth_header
             token = auth_header.split(' ')[1]
@@ -17,7 +19,7 @@ class ApplicationController < ActionController::API
             end
         end
     end
-
+    
     def current_user
         if decoded_token
             user_id = decoded_token[0]['user_id']
@@ -49,12 +51,14 @@ class ApplicationController < ActionController::API
             json = JSON.parse response
 
             abilities = [json["abilities"][2]["ability"]["name"], json["abilities"][3]["ability"]["name"], json["abilities"][4]["ability"]["name"], json["abilities"][5]["ability"]["name"]]
+
+            hp = [25, 30, 40, 50]
             
             if json 
 
                 
                 
-            Pet.create(name: json["name"], pet_type: json["battle_pet_type"]["name"], abilities: abilities, hp: [10..30].sample, user: User.last) #change to current user
+            Pet.create(name: json["name"], pet_type: json["battle_pet_type"]["name"], abilities: abilities, hp: hp.sample, img_url: json["icon"], user: User.last) #change to current user
 
             
             end
