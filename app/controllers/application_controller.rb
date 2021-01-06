@@ -4,8 +4,6 @@ class ApplicationController < ActionController::API
     end
 
     def auth_header
-        #how to get our current_user 
-        # byebug
         request.headers['Authorization']
     end
     
@@ -56,8 +54,5 @@ class ApplicationController < ActionController::API
             end
         end
     end
-
-
-
 
 end
