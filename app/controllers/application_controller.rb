@@ -39,7 +39,7 @@ class ApplicationController < ActionController::API
         
         array = [ 42, 43, 44, 45, 46, 47, 49, 56, 72, 87, 89, 107, 126, 143, 192]
 
-        accessToken= "US6F0HubpldDGsz8k61xV27703O3oJ3VV6"
+        accessToken= "USCTfiZmWjha1DyyTWnUGIbmJl7K13P9kl"
 
         array.map do |id|
 
@@ -52,9 +52,8 @@ class ApplicationController < ActionController::API
             hp = [25, 30, 40, 50]
             
             if json         
-                Pet.create(name: json["name"], pet_type: json["battle_pet_type"]["name"], abilities: abilities, hp: hp.sample, img_url: json["icon"], user: user) 
+                Pet.create(name: json["name"], pet_type: json["battle_pet_type"]["name"], description: json["description"], abilities: abilities, hp: hp.sample, img_url: json["icon"], user: user) 
             end
         end
     end
-
 end

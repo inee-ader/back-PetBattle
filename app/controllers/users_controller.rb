@@ -60,7 +60,6 @@ class UsersController < ApplicationController
         pet3 = params["team"][2]["id"]
         
         #  create team with those pets
-        byebug
         team = Team.create(user: User.find(current_user.id))
         PetTeam.create(team: team, pet:Pet.find(pet1))
         PetTeam.create(team: team, pet:Pet.find(pet2))
@@ -75,9 +74,10 @@ class UsersController < ApplicationController
         4.times {
             abilities << Faker::Games::StreetFighter.move
         }
+        # Faker::Games::DnD.monster
         
-        boss = Boss.create(name: Faker::Games::DnD.monster, hp: hp.sample, base_damage: rand(5..20), img_url: "https://www.cleanpng.com/png-dragon-nest-youtube-manticore-legendary-creature-c-940114/", abilities: abilities, game: game)
-        
+        boss = Boss.create(name: "Manticore", hp: hp.sample, base_damage: rand(5..20), img_url: "https://www.cleanpng.com/png-dragon-nest-youtube-manticore-legendary-creature-c-940114/", abilities: abilities, game: game)
+
         render json: game
     end
     
