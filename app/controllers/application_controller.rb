@@ -37,7 +37,7 @@ class ApplicationController < ActionController::API
 
     def api(user)
         
-        array = [ 42, 43, 44, 45, 46, 47, 49, 56, 72, 87, 89, 107, 126, 143, 192]
+        array = [ 164, 166, 188, 197, 210, 225, 239, 242, 244, 255, 272, 278, 289, 296, 381]
 
         accessToken= "USCTfiZmWjha1DyyTWnUGIbmJl7K13P9kl"
 
