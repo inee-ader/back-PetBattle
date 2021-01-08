@@ -76,7 +76,7 @@ class UsersController < ApplicationController
         }
         # Faker::Games::DnD.monster
         
-        boss = Boss.create(name: "Manticore", hp: hp.sample, base_damage: rand(5..20), img_url: "https://www.cleanpng.com/png-dragon-nest-youtube-manticore-legendary-creature-c-940114/", abilities: abilities, game: game)
+        boss = Boss.create(name: "Manticore", hp: hp.sample, base_damage: rand(5..20), img_url: "https://i.pinimg.com/originals/a9/8b/c5/a98bc5ec7ad3948eb6d8485096a20c50.jpg", abilities: abilities, game: game)
 
         render json: game
     end
