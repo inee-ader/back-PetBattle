@@ -4,6 +4,11 @@ class TeamsController < ApplicationController
         render json: teams
     end
 
+    def show
+        team = Team.find(params[:id])
+        render json: team
+    end
+
     def create
         team = Team.new(team_params) 
         
