@@ -28,3 +28,4 @@ just in case
 User.create(name: "tim", alias:"funkyWildabeast", bio:"something witty and cool", gif_url:"something.com")
 
 User.create(name: "admin", password: "123456", alias: "Master Commander", bio: "I am the GM", gold: 9999999999, gif_url: "https://media1.tenor.com/images/f9b2b7738d97396ddae8da8bf3b20a4e/tenor.gif?itemid=8385672")
+
