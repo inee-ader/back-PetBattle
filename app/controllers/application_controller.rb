@@ -39,7 +39,7 @@ class ApplicationController < ActionController::API
         
         array = [ 164, 166, 188, 197, 210, 225, 239, 242, 244, 255, 272, 278, 289, 296, 381]
 
-        accessToken= "US5jM8Mr4h2OnTbHSxOBveH6EMHAS3TJMj"
+        accessToken= "xxxxxxxxxxxxxxxxx"
 
         array.map do |id|
 
